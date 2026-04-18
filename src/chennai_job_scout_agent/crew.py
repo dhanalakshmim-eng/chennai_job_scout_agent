@@ -72,3 +72,9 @@ class ChennaiJobScoutAgent:
             expected_output="A professional, domain-accurate placement report.",
             agent=agent
         )
+        return Crew(
+            agents=[agent],
+            tasks=[task],
+            process=Process.sequential,
+            verbose=False
+        )

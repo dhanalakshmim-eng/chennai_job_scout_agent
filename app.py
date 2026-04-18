@@ -9,7 +9,7 @@ load_dotenv()
 if not os.getenv("GROQ_API_KEY"):
     st.error("API Key not found in environment!")
     st.stop()
-from pypdf import PdfReader
+from PyPDF2 import PdfReader
 from docx import Document
 from src.chennai_job_scout_agent.crew import ChennaiJobScoutAgent
 
