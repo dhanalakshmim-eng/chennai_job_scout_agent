@@ -93,10 +93,13 @@ GROQ_API_KEY=your_api_key_here
 ```
 chennai_job_scout_agent/
 │
-├── .venv
+├── AGENTS.md
+├── README.md
 ├── app.py
 ├── debug_env.py
 ├── .gitignore
+├── pyproject.toml
+├── requirements.txt
 │
 ├── knowledge/
 │   └── resume.txt
@@ -105,16 +108,13 @@ chennai_job_scout_agent/
 │   └── chennai_job_scout_agent/
 │       ├── crew.py
 │       ├── main.py
-│       ├── config/
-│       │   ├── agents.yaml
-│       │   └── tasks.yaml
 │       ├── tools/
 │       │   └── job_scraper.py
 │       │   └── custom_tool.py
 │       └── utils/
 │           └── save_output.py
 │
-└── requirements.txt
+└── uv.lock
 ```
 
 ---
@@ -169,14 +169,6 @@ Detects when resume and job domain don’t align and adjusts output accordingly.
 
 ## 🚀 How to Run
 
-### CLI Mode
-
-```bash
-python main.py
-```
-
----
-
 ### Streamlit UI
 
 ```bash
@@ -185,16 +177,24 @@ streamlit run app.py
 
 ---
 
+
 ## 🧪 Test Cases Passed
 
-| Test Case | Description         | Result   |
-| --------- | ------------------- | -------- |
-| TC-01     | Resume Parsing      | ✅ PASSED |
-| TC-02     | Domain Routing      | ✅ PASSED |
-| TC-03     | Context Isolation   | ✅ PASSED |
-| TC-04     | Extreme Mismatch    | ✅ PASSED |
-| TC-05     | Low Match Scoring   | ✅ PASSED |
-| TC-06     | Skill Gap Detection | ✅ PASSED |
+## 🧪 Test Cases & Sample Outputs
+
+| Test Case | Description | Sample Output | Result |
+|----------|------------|--------------|--------|
+| TC-01 | Resume Parsing | Extracted candidate details: Name, Skills (Python, SQL), Projects | ✅ PASSED |
+| TC-02 | Domain Routing | Input: *AI* → Suggested roles: ML Engineer, AI Engineer | ✅ PASSED |
+| TC-03 | Context Isolation | Resume keyword "Telemedicine" ignored for AI domain analysis | ✅ PASSED |
+| TC-04 | Extreme Mismatch | Resume: Horticulture → Domain: Java → Match Score: **< 20%** | ✅ PASSED |
+| TC-05 | Low Match Scoring | Non-technical resume → AI domain → Score: **10–30%** | ✅ PASSED |
+| TC-06 | Skill Gap Detection | Missing Skills: TensorFlow, Django, AWS (correctly identified) | ✅ PASSED |
+
+---
+
+### 📊 Sample Output (AI Domain)
+
 
 ---
 
