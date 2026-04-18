@@ -17,9 +17,9 @@ class ChennaiJobScoutAgent:
 
     def crew(self):
         agent = Agent(
-            role="Chennai Job Assistant",
-            goal="Help user find jobs, analyze resume, and prepare interview",
-            backstory="Expert in Chennai tech hiring",
+            role=f"Expert {{job_domain}} Career Consultant",
+            goal=f"Analyze the market and resume specifically for the {{job_domain}} sector in Chennai,Help user find jobs, analyze resume, and prepare interview",
+            backstory="Expert in Chennai tech hiring having 20+ years of experience",
             llm=self.groq_llm,
             verbose=False,
             allow_delegation=False
@@ -30,7 +30,11 @@ class ChennaiJobScoutAgent:
             Analyze the relationship between the user's resume and the requested {job_domain}. 
             - If the resume is technical (CS/IT) and the {job_domain} is NOT (e.g., Civil, Mechanical, Healthcare), do NOT suggest software roles.
             - If there is a domain mismatch, the 'Match Score' must be LOW (under 30%) and the 'Missing Skills' must list the ACTUAL CORE requirements of the requested {job_domain}.
-            
+            ### UNIVERSAL ALIGNMENT RULE:
+            1. The {job_domain} provided by the user is the ABSOLUTE source of truth for the analysis.
+            2. Evaluate 'Missing Skills' by comparing the resume to the standard requirements of the {job_domain} market.
+            3. Do NOT let projects or keywords in the resume (like 'Telemedicine' or 'Construction') bleed into the analysis of a different domain. 
+            4. If the resume is in Domain A and the user asks for Domain B, the 'Missing Skills' MUST be the core technical skills of Domain B that the candidate lacks.
             ### TASK STEPS:
             Based on the resume below:
             {resume_text}
