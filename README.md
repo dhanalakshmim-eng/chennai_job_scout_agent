@@ -180,8 +180,6 @@ streamlit run app.py
 
 ## 🧪 Test Cases Passed
 
-## 🧪 Test Cases & Sample Outputs
-
 | Test Case | Description | Sample Output | Result |
 |----------|------------|--------------|--------|
 | TC-01 | Resume Parsing | Extracted candidate details: Name, Skills (Python, SQL), Projects | ✅ PASSED |
