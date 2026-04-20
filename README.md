@@ -193,8 +193,10 @@ streamlit run app.py
 
 ---
 
-### 📊 Sample Output (AI Domain)
+### 📊 Sample Output 
+## 🎬 Demo Video
 
+[Watch Demo](https://youtu.be/ueSp573qrzI?si=SUVRU3lnn9xFYfx5)
 
 ---
 
